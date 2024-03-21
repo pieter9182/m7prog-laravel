@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\controllers\projectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/projects/add', [ ProjectController::class, 'add' ])->name('project.add');
 });
 
 require __DIR__.'/auth.php';
 Route::get('/about', [ \App\Http\Controllers\AboutController::class, 'index'])->name('about');
+Route::get('/project', [ \App\Http\Controllers\ProjectController::class, 'index'])->name('project');
+
+
