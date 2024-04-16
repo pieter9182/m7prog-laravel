@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
     public function index() {
-        return 'Dit is de about pagina.';
         $projects = Project::all();
 
         return view(
@@ -22,10 +22,13 @@ class ProjectController extends Controller
 
     public function add() {
             // Maak een model aan
-    $model = new Model();
+    $model = new Project();
     // definieer de velden
-    $model->field_one = 'mijn data';
+    $model->title = 'website';
+
+    $model->intro = "infoproeg";
     // sla het model op
     $model->save();
     }
+
 }
